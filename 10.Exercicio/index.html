@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula10 - Exercício</title>
+    <style>
+        .hide{
+            opacity: 100%;
+            transition: 1000ms;
+        }
+        .show{
+            opacity: 65%;
+            transition: 1000ms;
+        }
+    </style>
+</head>
+<body>
+
+<div id="root"></div>
+
+</body>
+<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type='text/babel'>  
+    class CompA extends React.Component{
+        constructor(props){
+            super(props)
+            this.state ={
+                nome: props.nome,
+                btText: 'Alterar',
+                efeito: 'show'
+                
+            }
+            //ligar os mecanismos
+            this.cmd_click = this.cmd_click.bind(this)
+        }
+    
+        cmd_click(){
+            if(this.state.btText === 'Alterar')
+                this.setState({nome: this.props.nick,btText:'voltar',efeito:'hide'})
+            else
+                this.setState({nome: this.props.nome,btText:'Alterar',efeito:'show'})
+
+
+        }
+
+        render(){
+            let show = (
+                <div className={this.state.efeito}>
+                    <p>Nome: {this.state.nome}</p>    
+                    <button onClick={this.cmd_click}>{this.state.btText}</button>
+                    <hr/>
+                </div>
+            )
+            let hide = (
+                <div className={this.state.efeito}>
+                    <p>Nome: {this.state.nome}</p>    
+                    <hr/>
+                </div>
+            )
+            return this.state.efeito ==='show'? show : show;
+        }
+    }
+    
+
+    class App extends React.Component{
+        constructor(props){
+            super(props)
+            this.state ={
+                nome: 'Henricky',
+                
+            }
+            //ligar os mecanismos
+            this.cmd_click = this.cmd_click.bind(this)
+        }
+        //----------------------------------
+        //Evento
+        cmd_click(){
+            this.setState({nome: 'Perikan'}) 
+        }
+        //----------------------------------
+        render(){
+            return (
+                <div>
+                    <h1>Mudar para Nick</h1>
+                    <CompA nome='Henricky' nick='Perikan'/>
+                    <CompA nome='Mário' nick='TEOREMAÇO'/>
+                    <CompA nome='Victor' nick='Kuririn'/>
+                    <CompA nome='H Fernando' nick='Akali'/>
+
+                </div>
+            )
+        }
+    }
+    
+    const root = document.getElementById('root')
+    ReactDOM.render(<App />,root)
+</script>
+</html>

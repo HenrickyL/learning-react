@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula02 - function component</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+</body>
+<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type='text/babel'>
+    //function componnet
+    function MeuComponente(){
+        let name = 'Henricky'
+        let lastName = 'Lima'
+        return(
+            <div>
+                <h1>Olá React!</h1>
+                <p>O meu nome é {name} {lastName}</p>
+            </div>
+        )
+    }
+    const root = document.getElementById('root')
+    //react expression
+    ReactDOM.render(<MeuComponente />,root)//conteudo,elemento
+</script>
+</html>

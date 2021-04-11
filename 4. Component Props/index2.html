@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula04.1 - Component Props</title>
+</head>
+<body>
+
+<div id="root"></div>
+
+</body>
+<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type='text/babel'>
+    //props - propriedades function
+    {
+    //     function CompA(props){
+            
+    //         return (
+    //             <div>
+    //                 <p>Nome: {props.nome}</p>
+    //             </div>
+    //         )
+            
+    //     }
+    //     function App(){
+    //         return(
+    //             <div>
+    //                 <CompA nome='Ana'/>
+    //                 <CompA nome='Luiz'/>    
+    //                 <CompA nome='Carlos'/>    
+    //                 <CompA nome='Pedro'/>    
+    
+    
+    //             </div>
+    //         )
+    //     }
+
+    }
+    //com class
+    class Adicao extends React.Component{
+        
+        render(){
+            return(
+                <div>
+                    <p>O resultado de {this.props.a}+{this.props.b}={this.props.a+this.props.b}</p>    
+                </div>
+            )
+        }
+    }
+    
+    const root = document.getElementById('root')
+    //react expression
+    ReactDOM.render(<Adicao a={5} b={6} />,root)//conteudo,elemento
+</script>
+</html>
